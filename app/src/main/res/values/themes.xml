@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Boris" parent="Theme.Material3.DayNight.NoActionBar" tools:ignore="DuplicateDefinition">
+        <!-- Customize your light theme here. -->
+
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:colorPrimaryDark">@color/black</item>
+        <item name="android:statusBarColor">@color/Fon</item>
+        <item name="android:navigationBarColor">@color/Fon</item>
+        <item name="android:navigationBarColor">@color/Fon</item>
+    </style>
+
+    <style name="Theme.Boris" parent="Base.Theme.Boris" />
+    <style name="Button.White" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">#E8D001</item>
+    </style>
+
+</resources>
