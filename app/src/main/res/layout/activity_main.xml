@@ -7,6 +7,36 @@
     android:background="@color/Fon"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/bReg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#F3DA00"
+        android:padding="15dp"
+        android:text="Войти"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/edPass"
+        app:layout_constraintStart_toStartOf="@+id/edPass"
+        app:layout_constraintTop_toBottomOf="@+id/edPass" />
+
+    <EditText
+        android:id="@+id/edPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:ems="10"
+        android:hint="Введите пароль"
+        android:inputType="textPassword"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edEmail"
+        app:layout_constraintStart_toStartOf="@+id/edEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
+
     <EditText
         android:id="@+id/edEmail"
         android:layout_width="0dp"
@@ -24,47 +54,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edPass"
+    <ImageView
+        android:id="@+id/imView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:ems="10"
-        android:hint="Введите пароль"
-        android:inputType="textPassword"
-        android:textColorHint="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/edEmail"
-        app:layout_constraintStart_toStartOf="@+id/edEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
-
-    <Button
-        android:id="@+id/bReg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#F3DA00"
-        android:padding="15dp"
-        android:text="Войти"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:cornerRadius="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/edPass"
-        app:layout_constraintStart_toStartOf="@+id/edPass"
-        app:layout_constraintTop_toBottomOf="@+id/edPass" />
-
-    <TextView
-        android:id="@+id/edFPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Забыли пароль?"
-        android:textColor="#F3DA00"
-        android:textSize="16sp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/edEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bReg" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/edAv"
@@ -78,15 +77,16 @@
         app:layout_constraintStart_toStartOf="@+id/edFPass"
         app:layout_constraintTop_toBottomOf="@+id/edFPass" />
 
-    <ImageView
-        android:id="@+id/imView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/edEmail"
+    <TextView
+        android:id="@+id/edFPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Забыли пароль?"
+        android:textColor="#F3DA00"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:layout_constraintTop_toBottomOf="@+id/bReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
