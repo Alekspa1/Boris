@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479225945749",
+    "project_id": "boris-c1aa0",
+    "storage_bucket": "boris-c1aa0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479225945749:android:06dd22660b36b5d420459c",
+        "android_client_info": {
+          "package_name": "com.example.boris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479225945749-008ntgh9kbp6psod523glkj9aq6vp607.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7c2S93cXCzfJPS-wsVkRGIpwDt2qeXwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479225945749-008ntgh9kbp6psod523glkj9aq6vp607.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
