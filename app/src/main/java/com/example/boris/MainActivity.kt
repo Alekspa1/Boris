@@ -31,12 +31,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         database = Firebase.database.reference
         binding.apply { // тут внутри байдинга
-            edAv.setOnClickListener { // кнопка
+            bReg.setOnClickListener { // кнопка
                 val signInIntent = AuthUI.getInstance()
                     .createSignInIntentBuilder()
                     .setAvailableProviders(providers)
                     .build()
                 signInLauncher.launch(signInIntent)
+
             }
             Picasso.get()
                 .load("https://i.pinimg.com/originals/30/cc/26/30cc261ff359f3d516afbc5287245b3c.jpg")
@@ -55,6 +56,8 @@ class MainActivity : AppCompatActivity() {
             val fireBaseUser = User(email, uid)
 
             database.child("users").child(authUser?.uid.toString()).setValue(fireBaseUser)
+            val i = Intent(this@MainActivity, RegisterActivity::class.java)
+            startActivity(i)
         } else {
             // Sign in failed. If response is null the user canceled the
             // sign-in flow using the back button. Otherwise check
