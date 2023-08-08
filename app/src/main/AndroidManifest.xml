@@ -14,7 +14,7 @@
         android:theme="@style/Base.Theme.Boris"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".MoviesActivity"
             android:exported="false">
 
         </activity>

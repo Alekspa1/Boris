@@ -3,6 +3,7 @@ package com.example.boris
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.boris.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
+            Log.d("MyLog", response.toString())
 
             val authUser = FirebaseAuth.getInstance().currentUser
             val email = authUser?.email.toString()
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             val fireBaseUser = User(email, uid)
 
             database.child("users").child(authUser?.uid.toString()).setValue(fireBaseUser)
-            val i = Intent(this@MainActivity, RegisterActivity::class.java)
+            val i = Intent(this@MainActivity, MoviesActivity::class.java)
             startActivity(i)
         } else {
             // Sign in failed. If response is null the user canceled the
