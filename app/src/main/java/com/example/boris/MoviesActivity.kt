@@ -31,11 +31,11 @@ class MoviesActivity : AppCompatActivity() {
         val recyclerView = binding.recyclerView // Инициализируем Recycler View
         recyclerView.layoutManager = GridLayoutManager(this, 2) // Делаем вид(таблицей)
         recyclerView.adapter = adapter // Подключаем адаптер
-        for(i in 0..IMAGES.size-1){
+        for(i in IMAGES.indices){ // создаем цикл чтобы заполнить список
             val img = IMAGES[i]
             val name = "Item $i"
             val cat = Cats(img, name)
-            catList.add(cat)
+            catList.add(cat) // Заполянем список
         }
 
 
