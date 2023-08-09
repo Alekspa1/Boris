@@ -1,12 +1,14 @@
 package com.example.boris
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.boris.databinding.ActivityRegisterBinding
 
-class MoviesActivity : AppCompatActivity() {
+class MoviesActivity : AppCompatActivity(), CustomRecyclerAdapter.Listener {
     lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,16 +29,17 @@ class MoviesActivity : AppCompatActivity() {
         )
 
         val catList = ArrayList<Cats>() // Создаем список
-        val adapter = CustomRecyclerAdapter(this, catList) // Инициализируем адаптер
+        val adapter = CustomRecyclerAdapter(this, catList, this@MoviesActivity ) // Инициализируем адаптер
         val recyclerView = binding.recyclerView // Инициализируем Recycler View
         recyclerView.layoutManager = GridLayoutManager(this, 2) // Делаем вид(таблицей)
-        recyclerView.adapter = adapter // Подключаем адаптер
-        for(i in IMAGES.indices){ // создаем цикл чтобы заполнить список
+
+        for(i in 0 until IMAGES.size){ // создаем цикл чтобы заполнить список
             val img = IMAGES[i]
             val name = "Item $i"
             val cat = Cats(img, name)
             catList.add(cat) // Заполянем список
         }
+        recyclerView.adapter = adapter // Подключаем адаптер
 
 
     }
@@ -47,6 +50,11 @@ class MoviesActivity : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed() // with this line
         Log.d("MyLog", "Message")
         this.finishAffinity()
+    }
+
+    override fun onClick(cat: Cats) {
+        Toast.makeText(this, cat.name, Toast.LENGTH_SHORT).show()
+        Log.d("MyLog", "mainActivity")
     }
 
 }
