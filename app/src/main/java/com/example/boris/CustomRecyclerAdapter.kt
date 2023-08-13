@@ -43,7 +43,6 @@ class CustomRecyclerAdapter(private var context: Context, var movie: List<Movies
         Picasso.get()
             .load(movie[position].poster.url)
             .into(holder.image)
-        Log.d("MyLog", movie[position].name )
     }
     interface Listener{
         fun onClick(movie: MoviesClass)

@@ -1,17 +1,20 @@
 package com.example.boris
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.boris.APIClass.FilmInfo
 import com.example.boris.APIClass.MoviesClass
 import com.example.boris.databinding.ActivityRegisterBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 
 class MoviesActivity : AppCompatActivity(),
     CustomRecyclerAdapter.Listener { // тут я добавил листенер
@@ -62,8 +65,13 @@ class MoviesActivity : AppCompatActivity(),
     } // заканчивается кнопка назад
 
     override fun onClick(movie: MoviesClass) { // функция для листенера
-        Log.d("MyLog", movie.name)
-        Toast.makeText(this@MoviesActivity, movie.name, Toast.LENGTH_SHORT).show()
+        val i = Intent(this@MoviesActivity, FilmActivity::class.java)
+        val filmInfo = FilmInfo(
+            movie.name,
+            movie.poster.url
+        ) // Создал класс потому что класс мувиес слишеом большой и выходит ошибка
+        i.putExtra("film", filmInfo)
+        startActivity(i)
 
     }
 }
