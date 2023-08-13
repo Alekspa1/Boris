@@ -29,7 +29,7 @@ class MoviesActivity : AppCompatActivity(),
         val recyclerView = binding.recyclerView // Инициализируем Recycler View
         recyclerView.layoutManager = LinearLayoutManager(this) // Делаем вид(таблицей)
 
-        for (i in 0..5) {
+        for (i in 0..5) { // временное решение пока не научусь пользоваться корутинами
             val apiInterface = ApiInterface.create().getUser() // Инициализируем Api интерфейс
             apiInterface.enqueue(object : Callback<MoviesClass> {
 
