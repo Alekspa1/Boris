@@ -6,11 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.boris.APIClass.MoviesClass
 import com.example.boris.databinding.RecyclerviewItemBinding
 import com.squareup.picasso.Picasso
 
 
-class CustomRecyclerAdapter(private var context: Context, var catList: List<Cats>, val listener: Listener): RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
+class CustomRecyclerAdapter(private var context: Context, var movie: List<MoviesClass>, val listener: Listener): RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
 
 
     class MyViewHolder(binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -30,22 +31,22 @@ class CustomRecyclerAdapter(private var context: Context, var catList: List<Cats
     }
 
     override fun getItemCount(): Int {
-        return catList.size
+        return movie.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.item.setOnClickListener{
-            listener.onClick(catList[position])
-            Log.d("MyLog", "Adapter")
+            listener.onClick(movie[position])
         }
-        holder.largeTextView.text = catList[position].name
-        holder.smallTextView.text = "кот"
+        holder.largeTextView.text = movie[position].name
+        holder.smallTextView.text = movie[position].slogan
         Picasso.get()
-            .load(catList[position].img)
+            .load(movie[position].poster.url)
             .into(holder.image)
+        Log.d("MyLog", movie[position].name )
     }
     interface Listener{
-        fun onClick(cat: Cats)
+        fun onClick(movie: MoviesClass)
     }
 
 }

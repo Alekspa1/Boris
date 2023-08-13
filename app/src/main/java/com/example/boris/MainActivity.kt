@@ -50,14 +50,13 @@ class MainActivity : AppCompatActivity() {
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
-            Log.d("MyLog", response.toString())
 
             val authUser = FirebaseAuth.getInstance().currentUser
             val email = authUser?.email.toString()
             val uid = authUser?.displayName.toString()
-            val fireBaseUser = User(email, uid)
+           // val fireBaseUser = User(email, uid)
 
-            database.child("users").child(authUser?.uid.toString()).setValue(fireBaseUser)
+            //database.child("users").child(authUser?.uid.toString()).setValue(fireBaseUser)
             val i = Intent(this@MainActivity, MoviesActivity::class.java)
             startActivity(i)
         } else {
