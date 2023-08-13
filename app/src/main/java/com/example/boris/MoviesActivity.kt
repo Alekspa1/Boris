@@ -5,8 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.boris.APIClass.FilmInfo
 import com.example.boris.APIClass.MoviesClass
@@ -14,7 +12,6 @@ import com.example.boris.databinding.ActivityRegisterBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.Serializable
 
 class MoviesActivity : AppCompatActivity(),
     CustomRecyclerAdapter.Listener { // тут я добавил листенер
@@ -30,7 +27,7 @@ class MoviesActivity : AppCompatActivity(),
         recyclerView.layoutManager = LinearLayoutManager(this) // Делаем вид(таблицей)
 
         for (i in 0..5) { // временное решение пока не научусь пользоваться корутинами
-            val apiInterface = ApiInterface.create().getUser() // Инициализируем Api интерфейс
+            val apiInterface = ApiInterface.create().getMovies() // Инициализируем Api интерфейс
             apiInterface.enqueue(object : Callback<MoviesClass> {
 
                 override fun onResponse(
@@ -39,7 +36,6 @@ class MoviesActivity : AppCompatActivity(),
                 ) { // Создаем функцию на поулчение результата API
                     val data = response.body() // Создаем переменную результата
                     if (data != null) { // Проверка на NULL
-                        Log.d("MyLog", "Успешно")
                         MoviesList.add(data)
                         adapter = CustomRecyclerAdapter(
                             baseContext,
@@ -66,11 +62,7 @@ class MoviesActivity : AppCompatActivity(),
 
     override fun onClick(movie: MoviesClass) { // функция для листенера
         val i = Intent(this@MoviesActivity, FilmActivity::class.java)
-        val filmInfo = FilmInfo(
-            movie.name,
-            movie.poster.url
-        ) // Создал класс потому что класс мувиес слишеом большой и выходит ошибка
-        i.putExtra("film", filmInfo)
+        i.putExtra("film", movie.id)
         startActivity(i)
 
     }
